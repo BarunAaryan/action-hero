@@ -1,0 +1,33 @@
+# naming the workflow
+name: Hello world workflow
+# Events on which the workflow is triggered
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+# for testing purposes we are using the workflow dispatch
+    workflow_dispatch:
+# now let's specify the list of jobs
+jobs: 
+    hello:
+        runs_on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+# https://github.com/actions/checkout
+            - name: hello world
+              run: echo "Hello World"
+              shell: bash
+# lets make another job
+    goodbye:
+        runs_on: ubuntu-latest
+        steps:
+            - name: GoodBye world
+              run: echo "Goodbye World"
+              shell: bash
+              
+
+
+
